@@ -7,13 +7,15 @@ It is made for Parkinson disease patients for tracking their medication and symp
 
 
 The app has 6 main features:
+
+
 1: Adding single medications and groups of medications (by doctors) to be taken by the patient.
 
 
 <img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210329-025043.jpg" width="300">
 
 
-2: A game (with different levels) to assess the patients' symptoms to be played by the patients a few times daily.
+2: An accelerometer based game (with different levels) to assess the patients' symptoms to be played by the patients a few times daily.
 
 
 <img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210303-195121.jpg" width="300">
