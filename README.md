@@ -9,7 +9,7 @@ It is made for Parkinson disease patients for tracking their medication and symp
 The app has 6 main features:
 
 
-1: Adding single medications and groups of medications (by doctors) to be taken by the patient.
+1: Prescribing single medications and groups of medications (by doctors) to be taken by the patient.
 
 
 <img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210329-025043.jpg" width="300">
