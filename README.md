@@ -6,40 +6,38 @@ It is made for Parkinson disease patients for tracking their medication and symp
 <img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210315-122856.jpg" width="300">
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210315-122856.jpg){:height="700px" width="400px"}
-
-
 The app has 6 main features:
 1: Adding single medications and groups of medications (by doctors) to be taken by the patient.
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210329-025043.jpg)
+<img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210329-025043.jpg" width="300">
 
 
 2: A game (with different levels) to assess the patients' symptoms to be played by the patients a few times daily.
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210303-195121.jpg)
+<img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210303-195121.jpg" width="300">
+
 
 
 3: A daily symptoms survey to be filled by the patients, with a daily reminder sent to the user.
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210305-001113.jpg)
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210304-200030_One%20UI%20Home.jpg)
+<img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210305-001113.jpg" width="300">
+<img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210304-200030_One%20UI%20Home.jpg" width="300">
 
 
 4: Medications logging (group medications and single booster medications) done by the patient whenever a medications is taken.
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210305-001210.jpg)
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210305-001226.jpg)
+<img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210305-001210.jpg" width="300">
+<img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210305-001226.jpg" width="300">
 
 
 5: Previous records pages to view previous game scores, daily surveys, medication intakes, with the option to delete records if needed.
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210305-133520.jpg)
+<img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210305-133520.jpg" width="300">
 
 
 6: A dashboard to view charts presenting the patient's data over time, data are game scores, daily surveys, medication adherence (calculated by the difference in time between the medication's optimal time and the time when the patient took this medication), to be viewed by the patient and the doctors to evaluate the changes in symptoms and decide if different tratment plan is needed.
