@@ -3,7 +3,7 @@ Track myself is a cross platform mobile app made in Flutter (currently supported
 It is made for Parkinson disease patients for tracking their medication and symptom level. Parkinson disease is a developing neurological disorder affecting the movement and body functionalities of humans, and it has different symptoms level for each patient and require different treatment plan that needs to be customized for each patient at each period of time.
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210315-122856.jpg){:height="50%" width="50%"}
+![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210315-122856.jpg){:height="20%" width="20%"}
 
 
 The app has 6 main features:
