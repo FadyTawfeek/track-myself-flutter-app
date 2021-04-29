@@ -42,7 +42,7 @@ The app has 6 main features:
 <img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210305-133520.jpg" width="300">
 
 
-6: A dashboard to view charts presenting the patient's data over time, data viewed on Y-axis are game scores, daily surveys, medication adherence (calculated by the difference in time between the medication's optimal time and the time when the patient took this medication), to be viewed by the patient and the doctors to evaluate the changes in symptoms and decide if different tratment plan is needed. It can be accessed from: https://fadytawfeek.shinyapps.io/Track-Myself/ on any browser or directly from the app itself using the device ID.
+6: A dashboard to view charts presenting the patient's data over time, data viewed on Y-axis are game scores, daily surveys, medication adherence (calculated by the difference in time between the medication's optimal time and the time when the patient took this medication), to be viewed by the patient and the doctors to evaluate the changes in symptoms and decide if different tratment plan is needed. It can be accessed from: https://fadytawfeek.shinyapps.io/Track-Myself/ on any browser or directly from the app itself using the device ID. (Please open the screenshots for better quality)
 
 
 <img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210416-030634.jpg" width="300">
