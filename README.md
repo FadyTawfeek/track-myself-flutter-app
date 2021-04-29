@@ -57,7 +57,7 @@ A 15-minute time difference red horizontal line is drawn in the medication adher
 ![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/weekly%20dashboard.png)
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/monthly$20dashboard.png)
+![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/monthly%20dashboard.png)
 
 
 For extended view of the data, 3 side tabs are used so that data is shown for every day even if the user chooses a long date range (and the date orientation is tilted when date range is too long).
