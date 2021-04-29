@@ -48,6 +48,9 @@ The app has 6 main features:
 <img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210416-030634.jpg" width="300">
 
 
+<img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/daily%20dashboard.png">
+
+
 ![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/daily%20dashboard.png)
 
 
