@@ -48,26 +48,23 @@ The app has 6 main features:
 <img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/Screenshot_20210416-030634.jpg" width="300">
 
 
-<img src="https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/daily%20dashboard.png">
-
-
 ![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/daily%20dashboard.png)
 
 
 A 15-minute time difference red horizontal line is drawn in the medication adherence chart to serve as a break point of good and poor medication adherence, and a blue trendline is drawn in all charts to represent the trend of the all time data for the patient (for example if the game scores are increasing, the trendline will have a positive slope. X-axis represents date, and its format varies according to the date range selected (day, week, month):
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/weekly_dashboard.png)
+![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/weekly%20dashboard.png)
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/monthly dashboard.png)
+![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/monthly$20dashboard.png)
 
 
 For extended view of the data, 3 side tabs are used so that data is shown for every day even if the user chooses a long date range (and the date orientation is tilted when date range is too long).
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/med side.png)
+![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/med%20side.png)
 
 
-![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/sym side.png)
+![alt text](https://github.com/FadyTawfeek/track-myself-flutter-app/blob/master/sym%20side.png)
 
