@@ -25,7 +25,6 @@ class UserDefaultMedicationItem extends StatelessWidget {
       ),
       subtitle: Text(
         "\n$amount",
-        //overflow: TextOverflow.ellipsis,
         style: TextStyle(
           color: Colors.orange[900],
         ),
@@ -83,10 +82,7 @@ class UserDefaultMedicationItem extends StatelessWidget {
                   ],
                 ),
               );
-            }
-
-            //color: Theme.of(context).errorColor,
-            ),
+            }),
       ),
     );
   }

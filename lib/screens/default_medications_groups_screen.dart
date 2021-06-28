@@ -1,18 +1,11 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stop1/providers/defaultMedicationGroups_class.dart';
 import 'package:stop1/widgets/noInternet.dart';
 import 'package:stop1/widgets/user_default_medication_group.dart';
-
-import '../widgets/user_default_medication_item.dart';
-import '../providers/defaultMedication_class.dart';
-import '../widgets/app_drawer.dart';
 import 'addDefaultMedicationGroup_screen.dart';
-import 'addDefaultMedication_screen.dart';
 
-// ignore: must_be_immutable
 class DefaultMedicationsGroupsScreen extends StatefulWidget {
   static const routeName = '/default-medications-groups';
 
@@ -72,15 +65,6 @@ class _DefaultMedicationsGroupsScreenState
       centerTitle: true,
       backgroundColor: Colors.lightBlue[900],
       title: Text('Default Medication groups'),
-      // actions: <Widget>[
-      //   IconButton(
-      //     icon: const Icon(Icons.add),
-      //     onPressed: () {
-      //       Navigator.of(context)
-      //           .pushNamed(AddDefaultMedicationGroupScreen.routeName);
-      //     },
-      //   ),
-      // ],
     );
     final mediaQuery = MediaQuery.of(context);
     double height = mediaQuery.size.height -
@@ -88,15 +72,12 @@ class _DefaultMedicationsGroupsScreenState
         appBar.preferredSize.height;
     double width = mediaQuery.size.width;
 
-    // ignore: non_constant_identifier_names
     final defaultMedicationsGroupsData =
         Provider.of<DefaultMedicationsGroups>(context);
     final reversedList = defaultMedicationsGroupsData.items.reversed.toList();
-    //print(DefaultMedicationsData.items.length);
-    //print(DefaultMedicationsData.items.length);
+
     return Scaffold(
       appBar: appBar,
-      //drawer: AppDrawer(),
       body: SafeArea(
         child: _isLoading
             ? Center(
@@ -125,30 +106,12 @@ class _DefaultMedicationsGroupsScreenState
                         ),
                       )
                     : NoInternet(DefaultMedicationsGroupsScreen.routeName),
-                // Column(
-                //     crossAxisAlignment: CrossAxisAlignment.center,
-                //     mainAxisAlignment: MainAxisAlignment.center,
-                //     children: [
-                //       Center(
-                //         child: Text("No internet"),
-                //       ),
-                //       Center(
-                //         child: IconButton(
-                //           icon: const Icon(Icons.refresh),
-                //           onPressed: () {
-                //             Navigator.of(context).pushReplacementNamed(
-                //                 DefaultMedicationsGroupsScreen.routeName);
-                //           },
-                //         ),
-                //       )
-                //     ],
-                //   ),
               ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)
-                .pushNamed(AddDefaultMedicationGroupScreen.routeName);
+              .pushNamed(AddDefaultMedicationGroupScreen.routeName);
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.lightBlue[900],
@@ -156,19 +119,3 @@ class _DefaultMedicationsGroupsScreenState
     );
   }
 }
-
-// showDialog(
-//         context: context,
-//         builder: (ctx) => AlertDialog(
-//           title: Text('An error occurred!'),
-//           content: Text('Something went wrong.'),
-//           actions: <Widget>[
-//             FlatButton(
-//               child: Text('Okay'),
-//               onPressed: () {
-//                 Navigator.of(ctx).pop();
-//               },
-//             )
-//           ],
-//         ),
-//       );

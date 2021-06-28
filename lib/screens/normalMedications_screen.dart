@@ -1,11 +1,7 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:stop1/widgets/noInternet.dart';
-import '../widgets/app_drawer.dart';
-
-import 'dart:io';
-
 import 'package:provider/provider.dart';
-
 import '../widgets/user_normal_medication_item.dart';
 import '../providers/normalMedication_class.dart';
 import './addNormalMedication_screen.dart';
@@ -68,15 +64,6 @@ class _NormalMedicationsScreenState extends State<NormalMedicationsScreen> {
       centerTitle: true,
       backgroundColor: Colors.lightBlue[900],
       title: Text('Booster Medications'),
-      // actions: <Widget>[
-      //   IconButton(
-      //     icon: const Icon(Icons.add),
-      //     onPressed: () {
-      //       Navigator.of(context)
-      //           .pushNamed(AddNormalMedicationScreen.routeName);
-      //     },
-      //   ),
-      // ],
     );
     final mediaQuery = MediaQuery.of(context);
     double height = mediaQuery.size.height -
@@ -86,10 +73,9 @@ class _NormalMedicationsScreenState extends State<NormalMedicationsScreen> {
 
     final normalMedicationsData = Provider.of<NormalMedications>(context);
     final reversedList = normalMedicationsData.items.reversed.toList();
-    //print(NormalMedicationsData.items.length);
+
     return Scaffold(
       appBar: appBar,
-      //drawer: AppDrawer(),
       body: SafeArea(
         child: _isLoading
             ? Center(
@@ -113,22 +99,17 @@ class _NormalMedicationsScreenState extends State<NormalMedicationsScreen> {
                                   reversedList[i].taken_amount,
                                 ),
                                 Divider(),
-                                // Text("aa"),
-                                // Text("data"),
-                                // Divider(),
                               ],
                             ),
                           ),
                         ),
                       )
                     : NoInternet(NormalMedicationsScreen.routeName),
-                
               ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context)
-                .pushNamed(AddNormalMedicationScreen.routeName);
+          Navigator.of(context).pushNamed(AddNormalMedicationScreen.routeName);
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.lightBlue[900],
@@ -136,19 +117,3 @@ class _NormalMedicationsScreenState extends State<NormalMedicationsScreen> {
     );
   }
 }
-
-// showDialog(
-//         context: context,
-//         builder: (ctx) => AlertDialog(
-//           title: Text('An error occurred!'),
-//           content: Text('Something went wrong.'),
-//           actions: <Widget>[
-//             FlatButton(
-//               child: Text('Okay'),
-//               onPressed: () {
-//                 Navigator.of(ctx).pop();
-//               },
-//             )
-//           ],
-//         ),
-//       );

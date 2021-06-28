@@ -1,22 +1,9 @@
 import 'dart:async';
 import 'dart:core';
-//import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 import '../providers/defaultMedication_class.dart';
-//import '../widgets/app_drawer.dart';
-//import 'package:intl/intl.dart';
-// import 'package:uuid/uuid.dart';
-
-// enum SymptomOptions {
-//   No_symptoms,
-//   Light_symptoms,
-//   Mild_symptoms,
-//   Strong_symptoms,
-//   Severe_symptoms,
-// }
 
 class AddDefaultMedicationScreen extends StatefulWidget {
   static const routeName = '/add-default-medication';
@@ -29,10 +16,7 @@ class AddDefaultMedicationScreen extends StatefulWidget {
 
 class _AddDefaultMedicationScreenState
     extends State<AddDefaultMedicationScreen> {
-  //String _selectedSymptom = "No symptoms";
-
   String _name;
-
   String _time1;
   String _time2;
   String _time3;
@@ -49,18 +33,6 @@ class _AddDefaultMedicationScreenState
     await Provider.of<DefaultMedications>(context, listen: false)
         .fetchDefaultMedications();
   }
-  //bool _timeValidator = true;
-
-  // List<TimeOfDay> timeList = [
-  //   time11,
-
-  //   '_time2',
-  //   '_time3',
-  //   '_time4',
-  //   '_time5',
-  // ];
-
-  //C [0] = "12";
 
   String _numPills = "";
   int _numOfTimes = 1;
@@ -86,7 +58,6 @@ class _AddDefaultMedicationScreenState
     }
 
     try {
-      //print("name is: $_name");
       await Provider.of<DefaultMedications>(context, listen: false)
           .findByName(_name);
       final defaultMedicationsData =
@@ -98,10 +69,7 @@ class _AddDefaultMedicationScreenState
         });
         return;
       }
-      // else
-      //   setState(() {
-      //     duplicatedDefaultMedication = false;
-      //   });
+
       setState(() {
         _isLoading = true;
       });
@@ -133,132 +101,12 @@ class _AddDefaultMedicationScreenState
       );
     }
 
-    //print("name is $_name");
-
-    //print("name issssss $_name");
-    // await Provider.of<DefaultMedications>(context, listen: false)
-    //     .fetchDefaultMedications();
-
-    //_form.currentState.save();
-
-    // try {
-    //   await Provider.of<DefaultMedications>(context, listen: false)
-    //       .addDefaultMedication(_newDefaultMedication);
-    // } catch (error) {
-    //   await showDialog(
-    //     context: context,
-    //     builder: (ctx) => AlertDialog(
-    //       title: Text('An error occurred!'),
-    //       content: Text('Something went wrong.'),
-    //       actions: <Widget>[
-    //         FlatButton(
-    //           child: Text('Okay'),
-    //           onPressed: () {
-    //             Navigator.of(ctx).pop();
-    //           },
-    //         )
-    //       ],
-    //     ),
-    //   );
-    // }
-    // finally {
-    //   setState(() {
-    //     _isLoading = false;
-    //   });
-    //   Navigator.of(context).pop();
-    // }
     setState(() {
       _isLoading = false;
     });
     Navigator.of(context).pop();
-    // Navigator.of(context).pop();
   }
 
-  // Future<void> _presentTimePicker1() async {
-  //   await showTimePicker(
-  //     context: context,
-  //     initialTime: TimeOfDay.now(),
-  //   ).then((pickedTime) {
-  //     if (pickedTime == null) {
-  //       return null;
-  //     }
-  //     setState(() {
-  //       var time = pickedTime.toString().substring(10, 15);
-  //       _time1 = time;
-  //     });
-  //   });
-  // }
-
-  // Future<void> _presentTimePicker2() async {
-  //   await showTimePicker(
-  //     context: context,
-  //     initialTime: TimeOfDay.now(),
-  //   ).then((pickedTime) {
-  //     if (pickedTime == null) {
-  //       return null;
-  //     }
-  //     setState(() {
-  //       var time = pickedTime.toString().substring(10, 15);
-  //       _time2 = time;
-  //     });
-  //   });
-  // }
-
-  // Future<void> _presentTimePicker3() async {
-  //   await showTimePicker(
-  //     context: context,
-  //     initialTime: TimeOfDay.now(),
-  //   ).then((pickedTime) {
-  //     if (pickedTime == null) {
-  //       return null;
-  //     }
-  //     setState(() {
-  //       var time = pickedTime.toString().substring(10, 15);
-  //       _time3 = time;
-  //     });
-  //   });
-  // }
-
-  // Future<void> _presentTimePicker4() async {
-  //   await showTimePicker(
-  //     context: context,
-  //     initialTime: TimeOfDay.now(),
-  //   ).then((pickedTime) {
-  //     if (pickedTime == null) {
-  //       return null;
-  //     }
-  //     setState(() {
-  //       var time = pickedTime.toString().substring(10, 15);
-  //       _time4 = time;
-  //     });
-  //   });
-  // }
-
-  // Future<void> _presentTimePicker5() async {
-  //   await showTimePicker(
-  //     context: context,
-  //     initialTime: TimeOfDay.now(),
-  //   ).then((pickedTime) {
-  //     if (pickedTime == null) {
-  //       return null;
-  //     }
-  //     setState(() {
-  //       var time = pickedTime.toString().substring(10, 15);
-  //       _time5 = time;
-  //     });
-  //   });
-  // }
-
-  // _displaySnackBar(BuildContext context) {
-  //   final snackBar = SnackBar(
-  //     content: Text('Please input the time'),
-  //     duration: Duration(seconds: 2),
-  //   );
-  //   _scaffoldKey.currentState.showSnackBar(snackBar);
-  //   //edited line
-  // }
-
-  //final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     final PreferredSizeWidget appBar = AppBar(
@@ -282,8 +130,6 @@ class _AddDefaultMedicationScreenState
     }
 
     return Scaffold(
-      //key: _scaffoldKey,
-      //drawer: AppDrawer(),
       appBar: appBar,
       body: SafeArea(
         child: _isLoading
@@ -291,8 +137,6 @@ class _AddDefaultMedicationScreenState
                 child: CircularProgressIndicator(),
               )
             : Container(
-                // child: _internet
-                //     ?
                 child: RefreshIndicator(
                   onRefresh: () => _refreshAddDefaultMedication(context),
                   child: Container(
@@ -313,11 +157,6 @@ class _AddDefaultMedicationScreenState
                                   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
-
-                                    // mainAxisAlignment:
-                                    //     MainAxisAlignment.center,
-                                    // mainAxisAlignment:
-                                    //     MainAxisAlignment.spaceEvenly,
                                     children: [
                                       Text(
                                         "Medication name: ",
@@ -327,10 +166,6 @@ class _AddDefaultMedicationScreenState
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      //),
-                                      // FittedBox(
-                                      //   fit: BoxFit.fitWidth,
-                                      //child:
                                       Flexible(
                                         fit: FlexFit.loose,
                                         child: Text(
@@ -343,7 +178,6 @@ class _AddDefaultMedicationScreenState
                                           ),
                                         ),
                                       ),
-                                      //),
                                     ],
                                   ),
                                 ),
@@ -360,9 +194,6 @@ class _AddDefaultMedicationScreenState
                                         child: Form(
                                           key: _form,
                                           child: TextFormField(
-                                            //initialValue: "",
-                                            // decoration: InputDecoration(
-                                            //     labelText: 'Name'),
                                             textInputAction:
                                                 TextInputAction.next,
                                             maxLength: 30,
@@ -372,9 +203,6 @@ class _AddDefaultMedicationScreenState
                                                     false;
                                               });
                                             },
-                                            //onFieldSubmitted: (_) {
-                                            //FocusScope.of(context).requestFocus(_priceFocusNode);
-                                            //},
                                             validator: (value) {
                                               if (value.isEmpty) {
                                                 return 'Please provide a value.';
@@ -428,11 +256,6 @@ class _AddDefaultMedicationScreenState
                                   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
-
-                                    // mainAxisAlignment:
-                                    //     MainAxisAlignment.center,
-                                    // mainAxisAlignment:
-                                    //     MainAxisAlignment.spaceEvenly,
                                     children: [
                                       Text(
                                         "Amount: ",
@@ -442,10 +265,6 @@ class _AddDefaultMedicationScreenState
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      //),
-                                      // FittedBox(
-                                      //   fit: BoxFit.fitWidth,
-                                      //child:
                                       Flexible(
                                         fit: FlexFit.loose,
                                         child: Text(
@@ -458,7 +277,6 @@ class _AddDefaultMedicationScreenState
                                           ),
                                         ),
                                       ),
-                                      //),
                                     ],
                                   ),
                                 ),
@@ -475,15 +293,9 @@ class _AddDefaultMedicationScreenState
                                         child: Form(
                                           key: _form2,
                                           child: TextFormField(
-                                            //initialValue: "",
-                                            // decoration: InputDecoration(
-                                            //     labelText: 'Name'),
                                             textInputAction:
                                                 TextInputAction.done,
                                             maxLength: 20,
-                                            //onFieldSubmitted: (_) {
-                                            //FocusScope.of(context).requestFocus(_priceFocusNode);
-                                            //},
                                             validator: (value) {
                                               if (value.isEmpty) {
                                                 return 'Please provide a value.';
@@ -519,7 +331,6 @@ class _AddDefaultMedicationScreenState
                             child: RaisedButton(
                               padding: EdgeInsets.all(5),
                               elevation: 15,
-                              //materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               color: Colors.lightBlue[900],
                               shape: RoundedRectangleBorder(
                                 side: BorderSide(
@@ -528,10 +339,6 @@ class _AddDefaultMedicationScreenState
                                     style: BorderStyle.solid),
                               ),
                               textColor: Colors.white,
-                              // child: FittedBox(
-                              //   fit: BoxFit.fitWidth,
-                              // child: Flexible(
-                              //   fit: FlexFit.loose,
                               child: Text(
                                 'Submit',
                                 style: TextStyle(
@@ -539,9 +346,6 @@ class _AddDefaultMedicationScreenState
                                   fontSize: width * 0.06,
                                 ),
                               ),
-                              //),
-                              //),
-
                               onPressed: () => _saveForm(_name, _numPills),
                             ),
                           ),

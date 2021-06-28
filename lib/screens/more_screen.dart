@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stop1/screens/addDefaultMedicationGroup_screen.dart';
 import 'package:stop1/screens/dashboard_screen.dart';
 import 'package:stop1/screens/symptoms_screen.dart';
-import '../widgets/app_drawer.dart';
 import 'addNormalMedicationGroup_screen.dart';
-import 'addNormalMedication_screen.dart';
 import 'addSymptom_screen.dart';
 import 'default_medications_groups_screen.dart';
 import 'games_screen.dart';
@@ -31,7 +28,6 @@ class MoreScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: MoreScreenBottomBar(height, width),
       appBar: appBar,
-      //drawer: AppDrawer(),
       body: SafeArea(
         child: Container(
           height: height * 0.8,
@@ -39,10 +35,8 @@ class MoreScreen extends StatelessWidget {
             children: <Widget>[
               Container(
                 height: height * 0.8 / 8,
-                //width: width,
                 padding: EdgeInsets.fromLTRB(
                     width * 0.03, height * 0.01, width * 0.03, height * 0.01),
-
                 child: RaisedButton(
                   elevation: 15,
                   color: Colors.lightBlue[900],
@@ -59,13 +53,10 @@ class MoreScreen extends StatelessWidget {
                   child: Text("Settings"),
                 ),
               ),
-
               Container(
                 height: height * 0.8 / 8,
-                //width: width,
                 padding: EdgeInsets.fromLTRB(
                     width * 0.03, height * 0.01, width * 0.03, height * 0.01),
-
                 child: RaisedButton(
                   elevation: 15,
                   color: Colors.lightBlue[900],
@@ -83,13 +74,10 @@ class MoreScreen extends StatelessWidget {
                   child: Text("Doctor Medications (for doctors)"),
                 ),
               ),
-
               Container(
                 height: height * 0.8 / 8,
-                //width: width,
                 padding: EdgeInsets.fromLTRB(
                     width * 0.03, height * 0.01, width * 0.03, height * 0.01),
-
                 child: RaisedButton(
                   elevation: 15,
                   color: Colors.lightBlue[900],
@@ -107,13 +95,10 @@ class MoreScreen extends StatelessWidget {
                   child: Text("Doctor Medication groups (for doctors)"),
                 ),
               ),
-
               Container(
                 height: height * 0.8 / 8,
-                //width: width,
                 padding: EdgeInsets.fromLTRB(
                     width * 0.03, height * 0.01, width * 0.03, height * 0.01),
-
                 child: RaisedButton(
                   elevation: 15,
                   color: Colors.lightBlue[900],
@@ -131,13 +116,10 @@ class MoreScreen extends StatelessWidget {
                   child: Text("My Medication groups"),
                 ),
               ),
-
               Container(
                 height: height * 0.8 / 8,
-                //width: width,
                 padding: EdgeInsets.fromLTRB(
                     width * 0.03, height * 0.01, width * 0.03, height * 0.01),
-
                 child: RaisedButton(
                   elevation: 15,
                   color: Colors.lightBlue[900],
@@ -155,13 +137,10 @@ class MoreScreen extends StatelessWidget {
                   child: Text("My Booster Medications"),
                 ),
               ),
-
               Container(
                 height: height * 0.8 / 8,
-                //width: width,
                 padding: EdgeInsets.fromLTRB(
                     width * 0.03, height * 0.01, width * 0.03, height * 0.01),
-
                 child: RaisedButton(
                   elevation: 15,
                   color: Colors.lightBlue[900],
@@ -178,13 +157,10 @@ class MoreScreen extends StatelessWidget {
                   child: Text("My Games Scores"),
                 ),
               ),
-
               Container(
                 height: height * 0.8 / 8,
-                //width: width,
                 padding: EdgeInsets.fromLTRB(
                     width * 0.03, height * 0.01, width * 0.03, height * 0.01),
-
                 child: RaisedButton(
                   elevation: 15,
                   color: Colors.lightBlue[900],
@@ -201,13 +177,10 @@ class MoreScreen extends StatelessWidget {
                   child: Text("My Daily Symptoms Surveys"),
                 ),
               ),
-
               Container(
                 height: height * 0.8 / 8,
-                //width: width,
                 padding: EdgeInsets.fromLTRB(
                     width * 0.03, height * 0.01, width * 0.03, height * 0.01),
-
                 child: RaisedButton(
                   elevation: 15,
                   color: Colors.lightBlue[900],
@@ -224,61 +197,6 @@ class MoreScreen extends StatelessWidget {
                   child: Text("Dashboard"),
                 ),
               ),
-
-              // child: ListView(children: <Widget>[
-              //   FlatButton(
-              //     onPressed: () {
-              //       Navigator.of(context).pushNamed(MyInfoScreen.routeName);
-              //     },
-              //     child: Text("My info"),
-              //   ),
-              //   Divider(),
-              //   FlatButton(
-              //     onPressed: () {
-              //       Navigator.of(context)
-              //           .pushNamed(DefaultMedicationsScreen.routeName);
-              //     },
-              //     child: Text("My default medications"),
-              //   ),
-              //   Divider(),
-              //   FlatButton(
-              //     onPressed: () {
-              //       Navigator.of(context)
-              //           .pushNamed(DefaultMedicationsGroupsScreen.routeName);
-              //     },
-              //     child: Text("My default medication groups"),
-              //   ),
-              //   Divider(),
-              //   FlatButton(
-              //     onPressed: () {
-              //       Navigator.of(context)
-              //           .pushNamed(NormalMedicationsScreen.routeName);
-              //     },
-              //     child: Text("My normal medications"),
-              //   ),
-              //   Divider(),
-              //   FlatButton(
-              //     onPressed: () {
-              //       Navigator.of(context)
-              //           .pushNamed(NormalMedicationsGroupsScreen.routeName);
-              //     },
-              //     child: Text("My normal medication groups"),
-              //   ),
-              //   Divider(),
-              //   FlatButton(
-              //     onPressed: () {
-              //       Navigator.of(context).pushNamed(SymptomsScreen.routeName);
-              //     },
-              //     child: Text("My daily symptoms surveys"),
-              //   ),
-              //   Divider(),
-              //   FlatButton(
-              //     onPressed: () {
-              //       Navigator.of(context).pushNamed(GamesScreen.routeName);
-              //     },
-              //     child: Text("My previous games scores"),
-              //   ),
-              // ]
             ],
           ),
         ),
@@ -312,7 +230,6 @@ class MoreScreenBottomBar extends StatelessWidget {
                     height: height / 10,
                     width: width / 2,
                     child: FlatButton(
-                      //disabledColor: Colors.blue,
                       color: Colors.lightBlue[900],
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
@@ -350,7 +267,6 @@ class MoreScreenBottomBar extends StatelessWidget {
                     height: height / 10,
                     width: width / 2,
                     child: FlatButton(
-                      //disabledColor: Colors.blue,
                       color: Colors.lightBlue[900],
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
@@ -396,7 +312,6 @@ class MoreScreenBottomBar extends StatelessWidget {
                     height: height / 10,
                     width: width / 2,
                     child: FlatButton(
-                      //disabledColor: Colors.blue,
                       color: Colors.lightBlue[900],
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
@@ -429,20 +344,12 @@ class MoreScreenBottomBar extends StatelessWidget {
                       ),
                     ),
                   ),
-                  //  IconButton(
-                  //   //iconSize: 30.0,
-                  //   //padding: EdgeInsets.all(10),
-                  //   //only(left: 28.0),
-                  //   icon: Icon(Icons.gamepad),
-                  //   onPressed: () {},
-                  // ),
                 ),
                 Expanded(
                   child: SizedBox(
                     height: height / 10,
                     width: width / 2,
                     child: FlatButton(
-                      //disabledColor: Colors.blue,
                       color: Colors.lightBlue[900],
                       shape: RoundedRectangleBorder(
                         side: BorderSide(

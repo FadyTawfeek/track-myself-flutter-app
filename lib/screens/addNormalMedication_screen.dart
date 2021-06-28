@@ -1,32 +1,17 @@
 import 'dart:async';
 import 'dart:core';
-//import 'dart:ffi';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:stop1/widgets/noInternet.dart';
 import 'package:uuid/uuid.dart';
 import '../widgets/medication_names_buttons.dart';
-//import '../widgets/optimal_times_buttons.dart';
 import '../providers/normalMedication_class.dart';
 import '../providers/defaultMedication_class.dart';
-//import '../providers/defaultMedication_class.dart';
-import '../widgets/app_drawer.dart';
 import 'package:intl/intl.dart';
-import '../screens/my_home_page.dart';
 import '../screens/addSymptom_screen.dart';
 import '../screens/more_screen.dart';
-// import 'package:uuid/uuid.dart';
-
-// enum SymptomOptions {
-//   No_symptoms,
-//   Light_symptoms,
-//   Mild_symptoms,
-//   Strong_symptoms,
-//   Severe_symptoms,
-// }
 
 class AddNormalMedicationScreen extends StatefulWidget {
   static const routeName = '/add-normal-medication';
@@ -40,7 +25,6 @@ class AddNormalMedicationScreen extends StatefulWidget {
 
 class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
   final _form = GlobalKey<FormState>();
-  //String _selectedSymptom = "No symptoms";
 
   var _isInit = true;
   var _isLoading = true;
@@ -58,12 +42,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
       chosenButtonCheck = newList;
     });
   }
-
-  // void resetChosenButtonCheck2(List newList) {
-  //   setState(() {
-  //     chosenButtonCheck2 = newList;
-  //   });
-  // }
 
   void updateOptimalTime(String newName) {
     setState(() {
@@ -91,27 +69,7 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
   String nextToBeDisplayedMedicationName;
   String nextToBeDisplayedMedicationTime;
 
-  Future<void> _asyncStuff2() async {
-    // setState(() {
-    //   medicationOptimalTimes = [];
-    // });
-    // setState(() {
-    //   _optimalTime = null;
-    // });
-
-    // await Provider.of<DefaultMedications>(context, listen: false)
-    //     .findByName(_name);
-    // final defaultMedicationsData =
-    //     Provider.of<DefaultMedications>(context, listen: false);
-    // //print(defaultMedicationsData.items3[0].default_time1);
-    // setState(() {
-    //   medicationOptimalTimes = [];
-
-    //   setState(() {
-    //     //_optimalTime = medicationOptimalTimes[0];
-    //   });
-    // });
-  }
+  Future<void> _asyncStuff2() async {}
 
   Future<void> _asyncStuff() async {
     try {
@@ -139,101 +97,23 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
         chosenButtonCheck.add(false);
       }
 
-      // await Provider.of<DefaultMedications>(context, listen: false)
-      //     .fetchAndSortDefaultMedications();
-
-      // final sortedDefaultMedicationsData =
-      //     Provider.of<DefaultMedications>(context, listen: false).sortedList;
-
       await Provider.of<NormalMedications>(context, listen: false)
           .fetchNormalMedications();
 
-      // NormalMedicationItem lastNormalMedication;
-
-      // final checkThereIsNormalMedications =
-      //     Provider.of<NormalMedications>(context, listen: false).items;
-
-      // //print("aaaaaa$checkThereIsNormalMedications");
-      // if (checkThereIsNormalMedications.isNotEmpty) {
-      //   lastNormalMedication =
-      //       Provider.of<NormalMedications>(context, listen: false).items.last;
-      // }
-
-      //setState(() {});
       defaultMedicationsDataForButtons = defaultMedicationsData.items;
 
-      //if (defaultMedicationsData.items.isNotEmpty) {
       for (var i = 0; i < defaultMedicationsData.items.length; i++) {
         medicationNames.add(defaultMedicationsData.items[i].default_med_name);
       }
-      //}
 
       int nameIndex = 0;
-      //int optimalTimeIndex = 0;
-
-      // if (nextToBeDisplayedMedicationName != null) {
-      //   setState(() {
-      //     nameIndex = medicationNames.indexWhere(
-      //         (element) => element == nextToBeDisplayedMedicationName);
-      //     //print(nameIndex);
-      //   });
-      // }
 
       setState(() {
         if (medicationNames.isNotEmpty) {
           _name = medicationNames[nameIndex];
         }
-
-        //print(_name);
         chosenButtonCheck[nameIndex] = true;
-        // _optimalTime = nextToBeDisplayedMedicationTime;
-        // //print(_optimalTime);
-        // chosenButtonCheck2[optimalTimeIndex] = true;
       });
-
-      // await Provider.of<DefaultMedications>(context, listen: false)
-      //     .findByName(_name);
-
-      //print("name is $_name");
-
-      // setState(() {
-      //   // _name = medicationNames[nameIndex];
-      //   // print(_name);
-      //   // chosenButtonCheck[nameIndex] = true;
-      //   _optimalTime = nextToBeDisplayedMedicationTime;
-      //   //print(_optimalTime);
-      //   //chosenButtonCheck2[optimalTimeIndex] = true;
-      // });
-
-      //String now = TimeOfDay.now().toString().substring(10, 15);
-
-      // int calculatedTimeDifference = 999999999;
-
-      // int timeDifference = 0;
-
-      // int nowHour = int.parse(now.substring(0, 2));
-      // int nowMin = int.parse(now.substring(3));
-
-      // for (var i = 0; i < defaultMedicationsData.items.length; i++) {
-      //   timeDifference = (nowHour -
-      //               int.parse(defaultMedicationsData.items[i].default_time1
-      //                   .substring(0, 2))) *
-      //           60 +
-      //       (nowMin -
-      //           int.parse(defaultMedicationsData.items[i].default_time1
-      //               .substring(3)));
-      //   if (timeDifference < 0) {
-      //     timeDifference = timeDifference + 1440;
-      //   }
-      //   if (timeDifference < calculatedTimeDifference) {
-      //     setState(() {
-      //       calculatedTimeDifference = timeDifference;
-
-      //       nameIndex = i;
-      //     });
-      //   }
-      // }
-
     }
     setState(() {
       _isLoading = false;
@@ -258,53 +138,20 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
     false,
   ];
 
-  // List<bool> chosenButtonCheck2 = [
-  //   false,
-  //   false,
-  //   false,
-  //   false,
-  //   false,
-  //   false,
-  //   false,
-  //   false,
-  //   false,
-  //   false,
-  // ];
-
-  //var a = TimeOfDay.fromDateTime(DateTime.now()).toString();
   List<String> medicationOptimalTimes = [];
 
   String _optimalTime = "Loading ...";
   bool pickTimeFlag = false;
-  //String _chosenOptimalTime;
 
   String _takenTime = TimeOfDay.now().toString().substring(10, 15);
-  // String _time3;
-  // String _time4;
-  // String _time5;
 
   bool _timeValidator = true;
   bool _dateValidator = true;
   bool _nameValidator = true;
 
   DateTime _takenDateTime = DateTime.now();
-  //bool _timeValidator = true;
-
-  // List<TimeOfDay> timeList = [
-  //   time11,
-
-  //   '_time2',
-  //   '_time3',
-  //   '_time4',
-  //   '_time5',
-  // ];
-
-  //C [0] = "12";
 
   String _numPills = "";
-  //int _numOfTimes = 1;
-
-  //final _form = GlobalKey<FormState>();
 
   var _newNormalMedication = NormalMedicationItem(
     id: Uuid().v1(),
@@ -312,7 +159,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
     taken_dateTime: null,
     taken_amount: "1",
   );
-  //var _isLoading = false;
 
   Future<void> _saveForm(
       _name, _takenDateTime, _optimalTime, _takenTime, _numPills) async {
@@ -320,10 +166,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
     if (!isValid) {
       return;
     }
-    // final isValid = _form.currentState.validate();
-    // if (!isValid) {
-    //   return;
-    // }
 
     if (_name == null) {
       setState(() {
@@ -339,13 +181,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
       return;
     }
 
-    // if (_optimalTime == null) {
-    //   setState(() {
-    //     _timeValidator = false;
-    //   });
-    //   return;
-    // }
-
     if (_takenTime == null) {
       setState(() {
         _timeValidator = false;
@@ -360,7 +195,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
       taken_amount: _numPills,
     );
     _newNormalMedication = normalMedicationItem;
-    //_form.currentState.save();
     setState(() {
       _isLoading = true;
     });
@@ -384,35 +218,22 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
         ),
       );
     }
-    // finally {
-    //   setState(() {
-    //     _isLoading = false;
-    //   });
-    //   Navigator.of(context).pop();
-    // }
     setState(() {
       _isLoading = false;
     });
     Navigator.of(context).pop();
-    // Navigator.of(context).pop();
   }
 
   Future<void> _presentDateTimePicker() async {
     await DatePicker.showDateTimePicker(
-      context, maxTime: DateTime.now(),
-
-      // context: context,
-      // initialDate: DateTime.now(),
-      // firstDate: DateTime(2019),
-      // lastDate: DateTime.now(),
+      context,
+      maxTime: DateTime.now(),
     ).then((pickedDateTime) {
       if (pickedDateTime == null) {
         return null;
       }
       setState(() {
         _takenDateTime = pickedDateTime;
-        //.toString().substring(10, 15);
-        //_time1 = time;
       });
     });
   }
@@ -439,7 +260,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
     });
   }
 
-  //final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     final PreferredSizeWidget appBar = AppBar(
@@ -467,16 +287,13 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
     }
 
     if (_takenTime != null) {
-      //_optimalTime != null &&
       setState(() {
         _timeValidator = true;
       });
     }
 
     return Scaffold(
-      //key: _scaffoldKey,
       bottomNavigationBar: MedicationsBottomBar(height, width),
-      //drawer: AppDrawer(),
       appBar: appBar,
       body: SafeArea(
         child: _isLoading
@@ -489,24 +306,14 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                         onRefresh: () => _refreshAddNormalMedications(context),
                         child: Container(
                           height: height * 0.8,
-
                           child: ListView(
                             children: <Widget>[
                               Container(
                                 height: height * 0.38,
-                                //width: width,
                                 padding: EdgeInsets.fromLTRB(width * 0.04,
                                     height * 0.01, width * 0.04, height * 0.01),
                                 child: Container(
                                   color: Colors.grey[350],
-                                  // decoration: BoxDecoration(
-                                  //   color: const Color(0xff7c94b6),
-                                  //   border: Border.all(
-                                  //     color: Colors.black,
-                                  //     width: 0,
-                                  //   ),
-                                  //   borderRadius: BorderRadius.circular(12),
-                                  // ),
                                   child: Column(
                                     children: <Widget>[
                                       Container(
@@ -515,11 +322,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                             EdgeInsets.fromLTRB(10, 0, 10, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
-
-                                          // mainAxisAlignment:
-                                          //     MainAxisAlignment.center,
-                                          // mainAxisAlignment:
-                                          //     MainAxisAlignment.spaceEvenly,
                                           children: [
                                             Text(
                                               "Medication name: ",
@@ -529,10 +331,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
-                                            //),
-                                            // FittedBox(
-                                            //   fit: BoxFit.fitWidth,
-                                            //child:
                                             Flexible(
                                               fit: FlexFit.loose,
                                               child: Text(
@@ -544,7 +342,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                                 ),
                                               ),
                                             ),
-                                            //),
                                           ],
                                         ),
                                       ),
@@ -558,7 +355,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                               MainAxisAlignment.spaceEvenly,
                                           children: [
                                             MedicationNamesButtons(
-                                              //medicationNames[0],
                                               defaultMedicationsDataForButtons,
                                               updateName,
                                               _asyncStuff2,
@@ -574,7 +370,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                               ),
                               Container(
                                 height: height * 0.15,
-                                //width: width,
                                 padding: EdgeInsets.fromLTRB(width * 0.03,
                                     height * 0.01, width * 0.03, height * 0.01),
                                 child: Container(
@@ -587,10 +382,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                             EdgeInsets.fromLTRB(10, 0, 10, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
-                                          // mainAxisAlignment:
-                                          //     MainAxisAlignment.center,
-                                          // mainAxisAlignment:
-                                          //     MainAxisAlignment.spaceEvenly,
                                           children: [
                                             Text(
                                               "Date and time: ",
@@ -600,10 +391,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
-                                            //),
-                                            // FittedBox(
-                                            //   fit: BoxFit.fitWidth,
-                                            //child:
                                             Flexible(
                                               fit: FlexFit.loose,
                                               child: Text(
@@ -614,7 +401,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                                 ),
                                               ),
                                             ),
-                                            //),
                                           ],
                                         ),
                                       ),
@@ -629,21 +415,13 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                             Text(
                                               "Not now ? ",
                                               style: TextStyle(
-                                                //color: Colors.lightBlue[900],
                                                 fontSize: width * 0.04,
                                                 fontStyle: FontStyle.italic,
                                               ),
                                             ),
-                                            // Text(
-                                            //   _takenDateTime == null
-                                            //       ? 'No Date Chosen!'
-                                            //       : "Picked Date and time: $_takenDateTime",
-                                            //   //"Picked Date and time: ${DateFormat("dd-MM-yyyy").format(_takenDateTime)}",
-                                            // ),
                                             RaisedButton(
                                                 padding: EdgeInsets.all(5),
                                                 elevation: 15,
-                                                //materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                                 color: Colors.lightBlue[900],
                                                 shape: RoundedRectangleBorder(
                                                   side: BorderSide(
@@ -654,21 +432,13 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                                 textColor: pickTimeFlag
                                                     ? Colors.amber[900]
                                                     : Colors.white,
-                                                // child: FittedBox(
-                                                //   fit: BoxFit.fitWidth,
-                                                // child: Flexible(
-                                                //   fit: FlexFit.loose,
                                                 child: Text(
                                                   'Choose different Date and time',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    //fontSize: width*0.05,
                                                   ),
                                                 ),
-                                                //),
-                                                //),
                                                 onPressed: () {
-                                                  //_presentDateTimePicker;
                                                   setState(() {
                                                     pickTimeFlag = true;
                                                     _presentDateTimePicker();
@@ -690,7 +460,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                 ),
                               Container(
                                 height: height * 0.15,
-                                //width: width,
                                 padding: EdgeInsets.fromLTRB(width * 0.03,
                                     height * 0.01, width * 0.03, height * 0.01),
                                 child: Container(
@@ -703,10 +472,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                             EdgeInsets.fromLTRB(10, 0, 10, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
-                                          // mainAxisAlignment:
-                                          //     MainAxisAlignment.center,
-                                          // mainAxisAlignment:
-                                          //     MainAxisAlignment.spaceEvenly,
                                           children: [
                                             Text(
                                               "Amount taken: ",
@@ -716,10 +481,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
-                                            //),
-                                            // FittedBox(
-                                            //   fit: BoxFit.fitWidth,
-                                            //child:
                                             Flexible(
                                               fit: FlexFit.loose,
                                               child: Text(
@@ -731,7 +492,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                                 ),
                                               ),
                                             ),
-                                            //),
                                           ],
                                         ),
                                       ),
@@ -749,15 +509,9 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                               child: Form(
                                                 key: _form,
                                                 child: TextFormField(
-                                                  //initialValue: "",
-                                                  // decoration: InputDecoration(
-                                                  //     labelText: 'amount'),
                                                   textInputAction:
                                                       TextInputAction.done,
                                                   maxLength: 20,
-                                                  //onFieldSubmitted: (_) {
-                                                  //FocusScope.of(context).requestFocus(_priceFocusNode);
-                                                  //},
                                                   validator: (value) {
                                                     if (value.isEmpty) {
                                                       return 'Please provide a value.';
@@ -781,7 +535,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                               ),
                               Container(
                                 height: height * 0.1,
-                                //width: width,
                                 padding: EdgeInsets.fromLTRB(width * 0.03,
                                     height * 0.01, width * 0.03, height * 0.01),
                                 child: Container(
@@ -789,7 +542,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                   child: RaisedButton(
                                     padding: EdgeInsets.all(5),
                                     elevation: 15,
-                                    //materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                     color: Colors.lightBlue[900],
                                     shape: RoundedRectangleBorder(
                                       side: BorderSide(
@@ -798,10 +550,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                           style: BorderStyle.solid),
                                     ),
                                     textColor: Colors.white,
-                                    // child: FittedBox(
-                                    //   fit: BoxFit.fitWidth,
-                                    // child: Flexible(
-                                    //   fit: FlexFit.loose,
                                     child: Text(
                                       'Submit',
                                       style: TextStyle(
@@ -809,8 +557,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                                         fontSize: width * 0.06,
                                       ),
                                     ),
-                                    //),
-                                    //),
                                     onPressed: () => _saveForm(
                                         _name,
                                         _takenDateTime,
@@ -822,8 +568,6 @@ class _AddNormalMedicationScreenState extends State<AddNormalMedicationScreen> {
                               ),
                             ],
                           ),
-                          //),
-                          //),
                         ),
                       )
                     : NoInternet(AddNormalMedicationScreen.routeName),
@@ -858,7 +602,6 @@ class MedicationsBottomBar extends StatelessWidget {
                     height: height / 10,
                     width: width / 2,
                     child: FlatButton(
-                      //disabledColor: Colors.blue,
                       color: Colors.lightBlue[900],
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
@@ -896,7 +639,6 @@ class MedicationsBottomBar extends StatelessWidget {
                     height: height / 10,
                     width: width / 2,
                     child: FlatButton(
-                      //disabledColor: Colors.blue,
                       color: Colors.lightBlue[900],
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
@@ -939,7 +681,6 @@ class MedicationsBottomBar extends StatelessWidget {
                     height: height / 10,
                     width: width / 2,
                     child: FlatButton(
-                      //disabledColor: Colors.blue,
                       color: Colors.lightBlue[900],
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
@@ -972,20 +713,12 @@ class MedicationsBottomBar extends StatelessWidget {
                       ),
                     ),
                   ),
-                  //  IconButton(
-                  //   //iconSize: 30.0,
-                  //   //padding: EdgeInsets.all(10),
-                  //   //only(left: 28.0),
-                  //   icon: Icon(Icons.gamepad),
-                  //   onPressed: () {},
-                  // ),
                 ),
                 Expanded(
                   child: SizedBox(
                     height: height / 10,
                     width: width / 2,
                     child: FlatButton(
-                      //disabledColor: Colors.blue,
                       color: Colors.lightBlue[900],
                       shape: RoundedRectangleBorder(
                         side: BorderSide(

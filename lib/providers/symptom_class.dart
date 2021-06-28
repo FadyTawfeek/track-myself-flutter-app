@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:device_info/device_info.dart';
 
 import '../models/baseUrl.dart' as baseUrlImport;
+
 final baseUrl = baseUrlImport.baseUrl;
 
 class SymptomItem {
@@ -35,16 +36,6 @@ class Symptoms with ChangeNotifier {
     return _items.firstWhere((symptomItem) => symptomItem.id == id);
   }
 
-  // void showFavoritesOnly() {
-  //   _showFavoritesOnly = true;
-  //   notifyListeners();
-  // }
-
-  // void showAll() {
-  //   _showFavoritesOnly = false;
-  //   notifyListeners();
-  // }
-
   Future<void> fetchSymptoms() async {
     String theDeviceId;
     var deviceInfo = DeviceInfoPlugin();
@@ -56,7 +47,7 @@ class Symptoms with ChangeNotifier {
       theDeviceId = androidDeviceInfo.androidId;
     }
     final url = '$baseUrl/$theDeviceId/symptoms.json';
-    //const url = 'https://stop1-8af28.firebaseio.com/symptoms.json';
+
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
@@ -89,9 +80,9 @@ class Symptoms with ChangeNotifier {
       var androidDeviceInfo = await deviceInfo.androidInfo;
       theDeviceId = androidDeviceInfo.androidId;
     }
-    //print(theDeviceId);
+
     final url = '$baseUrl/$theDeviceId/symptoms.json';
-    //final url = 'https://stop1-8af28.firebaseio.com/symptoms.json';
+
     final now = symptomItem.dateTime;
     final timestamp = now.toIso8601String();
 
@@ -107,13 +98,12 @@ class Symptoms with ChangeNotifier {
       );
       final newSymptomItem = SymptomItem(
         id: symptomItem.id,
-        //json.decode(response.body)['name'],
         dateTime: symptomItem.dateTime,
         symptom: symptomItem.symptom,
         tag: symptomItem.tag,
       );
       _items.add(newSymptomItem);
-      // _items.insert(0, newProduct); // at the start of the list
+
       notifyListeners();
     } catch (error) {
       print(error);
@@ -131,10 +121,9 @@ class Symptoms with ChangeNotifier {
       var androidDeviceInfo = await deviceInfo.androidInfo;
       theDeviceId = androidDeviceInfo.androidId;
     }
-    //print(theDeviceId);
+
     final url = '$baseUrl/$theDeviceId/symptoms.json';
 
-    //const url = 'https://stop1-8af28.firebaseio.com/symptoms.json';
     String toBeDeletedItemId;
     try {
       final response = await http.get(url);
@@ -142,25 +131,18 @@ class Symptoms with ChangeNotifier {
       if (extractedData == null) {
         return;
       }
-      //final List<DefaultMedicationItem> loadedDefaultMedications = [];
 
       extractedData.forEach((sympId, sympData) {
-        //String s = "6:00 AM";
-        //String s = defaultMedData['default_time1'];
-        //print(s);
-
         if (sympData['id'] == id) {
           toBeDeletedItemId = sympId;
         }
       });
-      //_items = loadedDefaultMedications;
       notifyListeners();
     } catch (error) {
       throw (error);
     }
 
-    final deleteUrl =
-        '$baseUrl/$theDeviceId/symptoms/$toBeDeletedItemId.json';
+    final deleteUrl = '$baseUrl/$theDeviceId/symptoms/$toBeDeletedItemId.json';
     final existingSymptomIndex =
         _items.indexWhere((symptom) => symptom.id == id);
     var existingSymptom = _items[existingSymptomIndex];

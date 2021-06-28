@@ -1,7 +1,4 @@
-//import 'dart:html';
-
 import 'package:flutter/material.dart';
-import '../widgets/app_drawer.dart';
 import 'package:sensors/sensors.dart';
 
 class UserSurveyScreen extends StatefulWidget {
@@ -27,31 +24,21 @@ class _UserSurveyScreenState extends State<UserSurveyScreen> {
         mediaQuery.padding.top -
         appBar.preferredSize.height;
     double width = mediaQuery.size.width;
-    //bool flag = false;
+
     void _myFunction() {
       setState(() {
         flag = true;
       });
-      //GyroscopeEvent value;
+
       print("the flag is $flag");
       gyroscopeEvents.listen((GyroscopeEvent event) {
-        //print(event);
-        //value = event;
-        //print(value);
-
         if (flag == true) {
           setState(() {
             value = event;
           });
           print(value);
         }
-
-        //print(value);
       });
-      // if (flag == true) {
-      //   print(value);
-      // }
-      //return value;
     }
 
     void _flip() {
@@ -61,7 +48,6 @@ class _UserSurveyScreenState extends State<UserSurveyScreen> {
 
     return Scaffold(
       appBar: appBar,
-      //drawer: AppDrawer(),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -76,17 +62,6 @@ class _UserSurveyScreenState extends State<UserSurveyScreen> {
                 "this is my output: ${value.toString()}",
               ),
               thisScreenNeeds(),
-
-              // FlatButton(
-              //   onPressed: _flip,
-              //   child: Text(
-              //     "Stop",
-              //   ),
-              // ),
-
-              // Text(
-              //   "this is my output: ${_myFunction()}",
-              // ),
             ],
           ),
         ),
@@ -101,11 +76,6 @@ class _UserSurveyScreenState extends State<UserSurveyScreen> {
           child: Text(
             "stop",
             textAlign: TextAlign.center,
-            // style: (TextStyle(
-            //     fontWeight: FontWeight.bold,
-            //     fontSize: 60,
-            //     color: Colors.green)
-            //     ),
           ),
           onPressed: () {
             setState(() {

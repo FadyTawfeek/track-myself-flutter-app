@@ -1,17 +1,11 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stop1/screens/play_game_screen.dart';
 import 'package:stop1/widgets/noInternet.dart';
-
 import '../widgets/user_game_item.dart';
-import '../screens/my_home_page.dart';
 import '../providers/games_class.dart';
-import '../widgets/app_drawer.dart';
-import './addSymptom_screen.dart';
 
-// ignore: must_be_immutable
 class GamesScreen extends StatefulWidget {
   static const routeName = '/games';
 
@@ -66,14 +60,6 @@ class _GamesScreenState extends State<GamesScreen> {
       centerTitle: true,
       backgroundColor: Colors.lightBlue[900],
       title: Text('Games Scores'),
-      // actions: <Widget>[
-      //   IconButton(
-      //     icon: const Icon(Icons.add),
-      //     onPressed: () {
-      //       Navigator.of(context).pushNamed(PlayGameScreen.routeName);
-      //     },
-      //   ),
-      // ],
     );
     final mediaQuery = MediaQuery.of(context);
     double height = mediaQuery.size.height -
@@ -84,7 +70,6 @@ class _GamesScreenState extends State<GamesScreen> {
     final reversedList = gamesData.items.reversed.toList();
     return Scaffold(
       appBar: appBar,
-      //drawer: AppDrawer(),
       body: SafeArea(
         child: _isLoading
             ? Center(

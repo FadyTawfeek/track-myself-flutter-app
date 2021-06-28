@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:stop1/screens/addDefaultMedication_screen.dart';
 import 'package:stop1/screens/default_medications_groups_screen.dart';
@@ -24,16 +23,9 @@ import './screens/my_home_page.dart';
 import './screens/addSymptom_screen.dart';
 import 'screens/settings_screen.dart';
 import './screens/default_medications_screen.dart';
-//import 'screens/addDefaultMedicationGroup_screen.dart';
 import 'screens/addNormalMedicationGroup_screen.dart';
-//import 'data/moor_database.dart' as moor;
-
-// import 'package:web_socket_channel/web_socket_channel.dart';
-// import 'package:web_socket_channel/status.dart' as statusCodes;
-//import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 void main() {
-  //SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }
 
@@ -63,7 +55,6 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        //appBar: AppBar(),
         title: 'Track Myself',
         home: MyHomePage(),
         routes: {
@@ -96,15 +87,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// Provider(
-//       // The single instance of AppDatabase
-//       //AppDatabase(),
-//       create: (BuildContext context) {
-//         AppDatabase();
-//       },
-//       child: MaterialApp(
-//         title: 'Material App',
-//         home: MyHomePage(),
-//       ),
-//     );

@@ -1,4 +1,3 @@
-//import 'dart:html';
 import 'dart:io';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/foundation.dart';
@@ -7,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import '../models/baseUrl.dart' as baseUrlImport;
+
 final baseUrl = baseUrlImport.baseUrl;
 
 class NormalMedicationItem {
@@ -39,16 +39,6 @@ class NormalMedications with ChangeNotifier {
         .firstWhere((normalMedicationItem) => normalMedicationItem.id == id);
   }
 
-  // void showFavoritesOnly() {
-  //   _showFavoritesOnly = true;
-  //   notifyListeners();
-  // }
-
-  // void showAll() {
-  //   _showFavoritesOnly = false;
-  //   notifyListeners();
-  // }
-
   Future<void> fetchNormalMedications() async {
     String theDeviceId;
     var deviceInfo = DeviceInfoPlugin();
@@ -59,10 +49,8 @@ class NormalMedications with ChangeNotifier {
       var androidDeviceInfo = await deviceInfo.androidInfo;
       theDeviceId = androidDeviceInfo.androidId;
     }
-    final url =
-        '$baseUrl/$theDeviceId/normalmedications.json';
+    final url = '$baseUrl/$theDeviceId/normalmedications.json';
 
-    //const url = 'https://stop1-8af28.firebaseio.com/normalmedications.json';
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
@@ -72,15 +60,10 @@ class NormalMedications with ChangeNotifier {
       final List<NormalMedicationItem> loadedNormalMedications = [];
 
       extractedData.forEach((normalMedId, normalMedData) {
-        //String s = "6:00 AM";
-        //String s = defaultMedData['default_time1'];
-        //print(s);
         loadedNormalMedications.add(NormalMedicationItem(
           id: normalMedData['id'],
           taken_med_name: normalMedData['taken_med_name'],
           taken_dateTime: DateTime.parse(normalMedData['taken_dateTime']),
-          //defaultMedData['default_time1'],
-          //(hour: s.split(":")[0], minute: s.split(":")[1])
           taken_amount: normalMedData['taken_amount'],
         ));
       });
@@ -101,11 +84,7 @@ class NormalMedications with ChangeNotifier {
       var androidDeviceInfo = await deviceInfo.androidInfo;
       theDeviceId = androidDeviceInfo.androidId;
     }
-    final url =
-        '$baseUrl/$theDeviceId/normalmedications.json';
-    //const url = 'https://stop1-8af28.firebaseio.com/normalmedications.json';
-    //final timestamp = time.toString();
-    //toIso8601String();
+    final url = '$baseUrl/$theDeviceId/normalmedications.json';
     try {
       final response = await http.post(
         url,
@@ -118,13 +97,11 @@ class NormalMedications with ChangeNotifier {
       );
       final newNormalMedicationItem = NormalMedicationItem(
         id: normalMedItem.id,
-        //json.decode(response.body)['name'],
         taken_med_name: normalMedItem.taken_med_name,
         taken_dateTime: normalMedItem.taken_dateTime,
         taken_amount: normalMedItem.taken_amount,
       );
       _items.add(newNormalMedicationItem);
-      // _items.insert(0, newProduct); // at the start of the list
       notifyListeners();
     } catch (error) {
       print(error);
@@ -142,9 +119,7 @@ class NormalMedications with ChangeNotifier {
       var androidDeviceInfo = await deviceInfo.androidInfo;
       theDeviceId = androidDeviceInfo.androidId;
     }
-    final url =
-        '$baseUrl/$theDeviceId/normalmedications.json';
-    //const url = 'https://stop1-8af28.firebaseio.com/normalmedications.json';
+    final url = '$baseUrl/$theDeviceId/normalmedications.json';
     String toBeDeletedItemId;
     try {
       final response = await http.get(url);
@@ -152,17 +127,12 @@ class NormalMedications with ChangeNotifier {
       if (extractedData == null) {
         return;
       }
-      //final List<NormalMedicationItem> loadedNormalMedications = [];
 
       extractedData.forEach((normalMedId, normalMedData) {
-        //String s = "6:00 AM";
-        //String s = defaultMedData['default_time1'];
-        //print(s);
         if (normalMedData['id'] == id) {
           toBeDeletedItemId = normalMedId;
         }
       });
-      //_items = loadedNormalMedications;
       notifyListeners();
     } catch (error) {
       throw (error);

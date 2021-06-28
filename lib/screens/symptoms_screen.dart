@@ -1,15 +1,11 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stop1/widgets/noInternet.dart';
-
 import '../widgets/user_symptom_item.dart';
 import '../providers/symptom_class.dart';
-import '../widgets/app_drawer.dart';
 import './addSymptom_screen.dart';
 
-// ignore: must_be_immutable
 class SymptomsScreen extends StatefulWidget {
   static const routeName = '/symptoms';
 
@@ -64,14 +60,6 @@ class _SymptomsScreenState extends State<SymptomsScreen> {
       centerTitle: true,
       backgroundColor: Colors.lightBlue[900],
       title: Text('Symptoms surveys'),
-      // actions: <Widget>[
-      //   IconButton(
-      //     icon: const Icon(Icons.add),
-      //     onPressed: () {
-      //       Navigator.of(context).pushNamed(AddSymptomScreen.routeName);
-      //     },
-      //   ),
-      // ],
     );
     final mediaQuery = MediaQuery.of(context);
     double height = mediaQuery.size.height -
@@ -82,7 +70,6 @@ class _SymptomsScreenState extends State<SymptomsScreen> {
     final reversedList = symptomsData.items.reversed.toList();
     return Scaffold(
       appBar: appBar,
-      //drawer: AppDrawer(),
       body: SafeArea(
         child: _isLoading
             ? Center(

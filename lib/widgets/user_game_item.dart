@@ -45,9 +45,7 @@ class UserGameItem extends StatelessWidget {
       subtitle: Text(
         "\n${DateFormat("dd-MM-yyyy '@' HH:mm").format(dateTime).toString()}",
         style: TextStyle(fontWeight: FontWeight.bold),
-        //overflow: TextOverflow.ellipsis,
       ),
-      // Text(dateTime.toString()),
       trailing: Container(
         width: 50,
         child: IconButton(
@@ -100,10 +98,7 @@ class UserGameItem extends StatelessWidget {
                   ],
                 ),
               );
-            }
-
-            //color: Theme.of(context).errorColor,
-            ),
+            }),
       ),
     );
   }

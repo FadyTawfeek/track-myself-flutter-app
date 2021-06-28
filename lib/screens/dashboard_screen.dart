@@ -22,9 +22,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   String theDeviceId;
 
   Future<void> _asyncStuff() async {
-    // setState(() {
-    //   _isLoading = true;
-    // });
     try {
       var deviceInfo = DeviceInfoPlugin();
       if (Platform.isIOS) {
@@ -60,7 +57,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
     return Scaffold(
       appBar: appBar,
-      //drawer: AppDrawer(),
       body: SafeArea(
         child: _isLoading
             ? Center(
@@ -76,8 +72,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       "Welcome to the dashboard where you can track your previous game scores, user symptom surveys, and medication adherence.\n\n\nSteps:\n\n1- Copy this 'Device ID'\n",
                       style: TextStyle(
                         color: Colors.lightBlue[900],
-                        //fontSize: 14,
-                        //width * 0.04,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
@@ -95,13 +89,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               '$theDeviceId',
                               style: TextStyle(
                                 color: Colors.black,
-                                //fontSize: 14,
-                                //width * 0.04,
                                 fontWeight: FontWeight.bold,
                                 fontStyle: FontStyle.italic,
                                 fontSize: 20,
                               ),
-                              //textAlign: TextAlign.center,
                             ),
                           ),
                         ),
@@ -115,8 +106,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       "\n2- Open this link, open the side bar menu (in the top left corner), and paste the Device ID you copied in the 'Device ID' field\n",
                       style: TextStyle(
                         color: Colors.lightBlue[900],
-                        //fontSize: 14,
-                        //width * 0.04,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
@@ -128,8 +117,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         style: TextStyle(
                           color: Colors.blue,
                           decoration: TextDecoration.underline,
-                          //fontSize: 14,
-                          //width * 0.04,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic,
                           fontSize: 28,
@@ -144,8 +131,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       "\n(Tip: Rotate your phone to landscape mode, and zoom in for a better view)",
                       style: TextStyle(
                         color: Colors.lightBlue[900],
-                        //fontSize: 14,
-                        //width * 0.04,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),

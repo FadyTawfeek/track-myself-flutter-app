@@ -37,22 +37,16 @@ class UserSymptomItem extends StatelessWidget {
         symptom,
         style: TextStyle(fontWeight: FontWeight.bold, color: symptomColor),
       ),
-      //isThreeLine: true,
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "\n${DateFormat("dd-MM-yyyy").format(dateTime).toString()}",
             style: TextStyle(fontWeight: FontWeight.bold),
-            //overflow: TextOverflow.ellipsis,
           ),
           if (tag != "")
             Text(
               "\n$tag",
-              //overflow: TextOverflow.ellipsis,
-              // style: TextStyle(
-              //   color: Colors.orange[900],
-              // ),
             ),
         ],
       ),
@@ -108,10 +102,7 @@ class UserSymptomItem extends StatelessWidget {
                   ],
                 ),
               );
-            }
-
-            //color: Theme.of(context).errorColor,
-            ),
+            }),
       ),
     );
   }

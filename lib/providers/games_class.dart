@@ -1,11 +1,11 @@
 import 'dart:io';
-
 import 'package:device_info/device_info.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import '../models/baseUrl.dart' as baseUrlImport;
+
 final baseUrl = baseUrlImport.baseUrl;
 
 class GameItem {
@@ -13,14 +13,12 @@ class GameItem {
   final DateTime dateTime;
   final String score;
   final String level;
-  //final int tipScore;
 
   GameItem({
     @required this.id,
     @required this.dateTime,
     @required this.score,
     @required this.level,
-//    @required this.tipScore,
   });
 }
 
@@ -100,12 +98,11 @@ class Games with ChangeNotifier {
         }),
       );
       final newGameItem = GameItem(
-        id: gameItem.id,
-        //json.decode(response.body)['name'],
-        dateTime: gameItem.dateTime,
-        score: gameItem.score,
-        level: gameItem.level
-      );
+          id: gameItem.id,
+          //json.decode(response.body)['name'],
+          dateTime: gameItem.dateTime,
+          score: gameItem.score,
+          level: gameItem.level);
       _items.add(newGameItem);
       // _items.insert(0, newProduct); // at the start of the list
       notifyListeners();
@@ -153,8 +150,7 @@ class Games with ChangeNotifier {
       throw (error);
     }
 
-    final deleteUrl =
-        '$baseUrl/$theDeviceId/games/$toBeDeletedItemId.json';
+    final deleteUrl = '$baseUrl/$theDeviceId/games/$toBeDeletedItemId.json';
     final existingGameIndex = _items.indexWhere((game) => game.id == id);
     var existingGame = _items[existingGameIndex];
     _items.removeAt(existingGameIndex);

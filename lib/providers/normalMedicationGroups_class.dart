@@ -1,4 +1,3 @@
-//import 'dart:html';
 import 'dart:io';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/foundation.dart';
@@ -8,6 +7,7 @@ import 'dart:convert';
 import 'defaultMedication_class.dart';
 
 import '../models/baseUrl.dart' as baseUrlImport;
+
 final baseUrl = baseUrlImport.baseUrl;
 
 class NormalMedicationGroup {
@@ -42,16 +42,6 @@ class NormalMedicationsGroups with ChangeNotifier {
         .firstWhere((normalMedicationGroup) => normalMedicationGroup.id == id);
   }
 
-  // void showFavoritesOnly() {
-  //   _showFavoritesOnly = true;
-  //   notifyListeners();
-  // }
-
-  // void showAll() {
-  //   _showFavoritesOnly = false;
-  //   notifyListeners();
-  // }
-
   Future<void> fetchNormalMedicationsGroups() async {
     String theDeviceId;
     var deviceInfo = DeviceInfoPlugin();
@@ -62,9 +52,8 @@ class NormalMedicationsGroups with ChangeNotifier {
       var androidDeviceInfo = await deviceInfo.androidInfo;
       theDeviceId = androidDeviceInfo.androidId;
     }
-    final url =
-        '$baseUrl/$theDeviceId/normalmedicationsgroups.json';
-    //const url = 'https://stop1-8af28.firebaseio.com/normalmedicationsgroups.json';
+    final url = '$baseUrl/$theDeviceId/normalmedicationsgroups.json';
+
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
@@ -90,17 +79,12 @@ class NormalMedicationsGroups with ChangeNotifier {
 
           theList.add(loadedDefaultMedicationItem);
         }
-        //String s = "6:00 AM";
-        //String s = defaultMedData['default_time1'];
-        //print(s);
-        //print(theList);
+
         loadedNormalMedicationsGroups.add(NormalMedicationGroup(
           id: normalMedData['id'],
           normal_group_name: normalMedData['normal_group_name'],
           optimal_time: normalMedData['optimal_time'],
           taken_dateTime: DateTime.parse(normalMedData['taken_dateTime']),
-          //defaultMedData['default_time1'],
-          //(hour: s.split(":")[0], minute: s.split(":")[1])
           listOfMedicationItems: theList,
         ));
       });
@@ -122,13 +106,8 @@ class NormalMedicationsGroups with ChangeNotifier {
       var androidDeviceInfo = await deviceInfo.androidInfo;
       theDeviceId = androidDeviceInfo.androidId;
     }
-    final url =
-        '$baseUrl/$theDeviceId/normalmedicationsgroups.json';
+    final url = '$baseUrl/$theDeviceId/normalmedicationsgroups.json';
 
-    // const url =
-    //     'https://stop1-8af28.firebaseio.com/normalmedicationsgroups.json';
-    //final timestamp = time.toString();
-    //toIso8601String();
     try {
       final response = await http.post(
         url,
@@ -148,19 +127,16 @@ class NormalMedicationsGroups with ChangeNotifier {
                 "amount": normalMedGroup.listOfMedicationItems[i].amount
               }
           ]
-          //normalMedGroup.listOfMedicationItems,
         }),
       );
       final newNormalMedicationGroup = NormalMedicationGroup(
         id: normalMedGroup.id,
-        //json.decode(response.body)['name'],
         normal_group_name: normalMedGroup.normal_group_name,
         optimal_time: normalMedGroup.optimal_time,
         taken_dateTime: normalMedGroup.taken_dateTime,
         listOfMedicationItems: normalMedGroup.listOfMedicationItems,
       );
       _items.add(newNormalMedicationGroup);
-      // _items.insert(0, newProduct); // at the start of the list
       notifyListeners();
     } catch (error) {
       print(error);
@@ -178,10 +154,8 @@ class NormalMedicationsGroups with ChangeNotifier {
       var androidDeviceInfo = await deviceInfo.androidInfo;
       theDeviceId = androidDeviceInfo.androidId;
     }
-    final url =
-        '$baseUrl/$theDeviceId/normalmedicationsgroups.json';
-    // const url =
-    //     'https://stop1-8af28.firebaseio.com/normalmedicationsgroups.json';
+    final url = '$baseUrl/$theDeviceId/normalmedicationsgroups.json';
+
     String toBeDeletedItemId;
     try {
       final response = await http.get(url);
@@ -189,17 +163,13 @@ class NormalMedicationsGroups with ChangeNotifier {
       if (extractedData == null) {
         return;
       }
-      //final List<NormalMedicationGroup> loadedNormalMedicationsGroups = [];
 
       extractedData.forEach((normalMedId, normalMedData) {
-        //String s = "6:00 AM";
-        //String s = defaultMedData['default_time1'];
-        //print(s);
         if (normalMedData['id'] == id) {
           toBeDeletedItemId = normalMedId;
         }
       });
-      //_items = loadedNormalMedicationsGroups;
+
       notifyListeners();
     } catch (error) {
       throw (error);

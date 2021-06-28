@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:stop1/screens/addDefaultMedicationGroup_screen.dart';
 import 'package:stop1/screens/addDefaultMedication_screen.dart';
 import '../screens/my_home_page.dart';
 import '../screens/games_screen.dart';
 import '../screens/normalMedications_screen.dart';
 import '../screens/symptoms_screen.dart';
-//import '../screens/drawings_screen.dart';
 import '../screens/more_screen.dart';
 import '../screens/dashboard_screen.dart';
-import '../screens/addDefaultMedicationGroup_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   @override

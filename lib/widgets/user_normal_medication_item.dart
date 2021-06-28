@@ -32,11 +32,9 @@ class UserNormalMedicationItem extends StatelessWidget {
           Text(
             "\n${DateFormat("dd-MM-yyyy '@' HH:mm").format(taken_dateTime).toString()}",
             style: TextStyle(fontWeight: FontWeight.bold),
-            //overflow: TextOverflow.ellipsis,
           ),
           Text(
             "\n$taken_amount",
-            //overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: Colors.orange[900],
             ),
@@ -96,10 +94,7 @@ class UserNormalMedicationItem extends StatelessWidget {
                   ],
                 ),
               );
-            }
-
-            //color: Theme.of(context).errorColor,
-            ),
+            }),
       ),
     );
   }

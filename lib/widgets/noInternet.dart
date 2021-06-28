@@ -15,7 +15,6 @@ class NoInternet extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
           ),
         ),
-        //Divider(),
         Padding(
           padding: EdgeInsets.all(10),
         ),

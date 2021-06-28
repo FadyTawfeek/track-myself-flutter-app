@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:stop1/providers/defaultMedication_class.dart';
 import 'package:stop1/providers/normalMedicationGroups_class.dart';
-import '../providers/normalMedication_class.dart';
 
 class UserNormalMedicationGroup extends StatelessWidget {
   final String id;
@@ -33,7 +32,6 @@ class UserNormalMedicationGroup extends StatelessWidget {
       subtitle: Text(
         "\n${DateFormat("dd-MM-yyyy '@' HH:mm").format(taken_dateTime).toString()}",
         style: TextStyle(fontWeight: FontWeight.bold),
-        //overflow: TextOverflow.ellipsis,
       ),
       trailing: Container(
         width: 50,
@@ -88,24 +86,7 @@ class UserNormalMedicationGroup extends StatelessWidget {
                   ],
                 ),
               );
-            }
-            //  async {
-            //   try {
-            //     await Provider.of<NormalMedicationsGroups>(context, listen: false)
-            //         .deleteNormalMedicationGroup(id);
-            //   } catch (error) {
-            //     scaffold.showSnackBar(
-            //       SnackBar(
-            //         content: Text(
-            //           'Deleting failed!',
-            //           textAlign: TextAlign.center,
-            //         ),
-            //       ),
-            //     );
-            //   }
-            // },
-            //color: Theme.of(context).errorColor,
-            ),
+            }),
       ),
     );
   }

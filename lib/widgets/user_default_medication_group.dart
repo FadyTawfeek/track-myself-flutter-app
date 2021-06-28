@@ -24,12 +24,10 @@ class UserDefaultMedicationGroup extends StatelessWidget {
       ),
       subtitle: Text(
         "\n$default_time",
-        //overflow: TextOverflow.ellipsis,
         style: TextStyle(
           color: Colors.orange[900],
         ),
       ),
-      //subtitle: Text(default_time2.toString()),
       trailing: Container(
         width: 50,
         child: IconButton(
@@ -83,10 +81,7 @@ class UserDefaultMedicationGroup extends StatelessWidget {
                   ],
                 ),
               );
-            }
-
-            //color: Theme.of(context).errorColor,
-            ),
+            }),
       ),
     );
   }

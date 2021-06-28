@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../widgets/app_drawer.dart';
 
 class DrawingsScreen extends StatelessWidget {
   static const routeName = '/drawings';
@@ -19,7 +18,6 @@ class DrawingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: appBar,
-      //drawer: AppDrawer(),
       body: SafeArea(
         child: Center(
           child: Text('Drawings body'),
